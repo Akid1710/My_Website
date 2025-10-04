@@ -1,0 +1,89 @@
+
+
+body {
+  font-family: 'Times New Roman', Times, serif, ;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Judul utama halaman */
+.section-title2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #004aad;
+  margin-bottom: 15px;
+}
+
+/* Subjudul */
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  border-left: 5px solid #004aad;
+  padding-left: 10px;
+  color: /* Reset default */
+}
+
+
+/* Logo sekolah (halaman utama) */
+.logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 150px;
+  height: auto;
+}
+
+/* Foto diri (halaman biodata) */
+.foto-diri {
+  display: block;
+  margin: 20px auto;
+  width: 200px;         /* pastikan width = height */
+  height: 200px;        
+  border-radius: 50%;   /* bikin bulat */
+  object-fit: cover;    /* isi foto dipotong rapi */
+  border: 3px solid #004aad; /* opsional bingkai */
+}
+
+
+/* Foto favorit (halaman utama, air terjun) */
+.foto-favorit {
+  display: block;
+  margin: 20px auto;
+  width: 200px;     
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid #004aad;
+  object-fit: cover;
+}
+
+/* Tautan */
+a {
+  color: #004aad;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.subjudul {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+  font-style: italic; /* biar beda gaya */
+  text-align: center;
+}
+.box {
+  background: #fff;              /* warna kotak */
+  border: 1px solid #ddd;        /* garis pinggir tipis */
+  border-radius: 80px;            /* sudut tumpul */
+  padding: 20px;                 /* jarak dalam */
+  margin: 20px auto;             /* jarak antar box */
+  max-width: 600px;              /* lebar maksimal */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* bayangan biar elegan */
+  text-align: left;              /* teks rata kiri */
+}

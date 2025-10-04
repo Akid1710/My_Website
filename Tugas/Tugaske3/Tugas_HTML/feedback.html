@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulir Umpan Balik</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <header>
+    <h1>Formulir Umpan Balik</h1>
+    <p>Kritik, Saran, dan Masukan</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="biodata-susulan.html">Biodata</a>
+    <a href="jadwal.html">Jadwal</a>
+    <a href="galeri.html">Galeri</a>
+    <a href="feedback.html" class="active">Feedback</a>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h3>Formulir Kontak & Saran</h3>
+      
+      <form action="https://formsubmit.co/dika75930@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
+        <label for="nama">Nama Anda (Opsional):</label>
+        <input type="text" id="nama" name="nama" placeholder="Tulis nama Anda">
+
+        <label for="email">Email Anda:</label>
+        <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+
+        <label for="rating">Rating Kepuasan Website (1-10):</label>
+        <input type="number" id="rating" name="rating" min="1" max="10" required>
+
+        <label>Rekomendasi Website Ini?</label>
+        <div class="option-group">
+          <label><input type="radio" name="rekom" value="Ya, Sangat"> Ya, Sangat</label>
+          <label><input type="radio" name="rekom" value="Mungkin Saja"> Mungkin Saja</label>
+          <label><input type="radio" name="rekom" value="Tidak"> Tidak</label>
+        </div>
+
+        <label>Topik yang paling menarik:</label>
+        <div class="option-group">
+          <label><input type="checkbox" name="topik[]" value="Biodata"> Biodata</label>
+          <label><input type="checkbox" name="topik[]" value="Jadwal"> Jadwal</label>
+          <label><input type="checkbox" name="topik[]" value="Galeri"> Galeri</label>
+        </div>
+
+        <label for="bidang">Saran Pengembangan:</label>
+        <select id="bidang" name="bidang">
+          <option value="">-- Pilih Bidang --</option>
+          <option value="Desain">Desain</option>
+          <option value="Konten">Konten</option>
+          <option value="Fitur">Fitur</option>
+        </select>
+
+        <label for="pesan">Pesan/Saran Lengkap:</label>
+        <textarea id="pesan" name="pesan" rows="5" placeholder="Tulis pesan dan saran Anda di sini..."></textarea>
+
+        <div class="form-actions">
+          <button type="reset" class="reset">Atur Ulang</button>
+          <button type="submit" class="submit">Kirim Feedback</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
