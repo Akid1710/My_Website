@@ -1,8 +1,7 @@
 /* =========================
-   style2.css — versi rapi
+   style2.css — versi fix Android responsive
    ========================= */
 
-/* Reset & variables */
 * { box-sizing: border-box; }
 :root{
   --bg: #f9fafb;
@@ -15,20 +14,18 @@
   --container-max: 1100px;
 }
 
-/* Body / Base */
+/* ===== BODY ===== */
 body {
   margin: 0;
-  /* Tambahkan font sistem umum di depan */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: var(--bg);
-  /* ... dst ... */
   background: var(--bg);
   color: #1f2937;
   line-height: 1.5;
+  overflow-x: hidden; /* ← cegah geser kanan di Android */
 }
 
-/* Header */
-header{
+/* ===== HEADER ===== */
+header {
   text-align: center;
   padding: 28px 16px;
 }
@@ -40,20 +37,17 @@ header img {
 h1 { margin: 0; color: var(--primary); font-size: 1.6rem; }
 header p { margin: 6px 0 0; color: var(--muted); }
 
-/* Navigation */
-/* Navigation */
+/* ===== NAV ===== */
 nav {
-  display: flex; /* WAJIB FLEX */
-  justify-content: center; /* Menengahkan tombol */
-  flex-wrap: wrap; 
-  gap: 10px; 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
   margin: 14px 0;
   padding: 0 10px;
 }
 nav a {
-  display: inline-block; /* HARUS INI agar sejajar */
-  margin: 0; 
-  max-width: none; 
+  display: inline-block;
   padding: 8px 14px;
   border-radius: 999px;
   text-decoration: none;
@@ -67,42 +61,7 @@ nav a.active, nav a:hover {
   border-color: var(--primary);
 }
 
-/* ... KODE CSS LAINNYA DI ATAS INI TETAP SAMA ... */
-
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Jarak antar elemen form */
-}
-form label {
-  display: block; 
-  margin-top: 5px; 
-  font-weight: 600; 
-}
-/* KODE INI UNTUK MERAPATKAN TOMBOL */
-.form-actions { 
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end; 
-  margin-top: 10px;
-}
-.form-actions button {
-  flex-grow: 1; 
-  max-width: 150px; 
-  margin: 0; 
-}
-/* Radio & checkbox rapi ke bawah */
-.option-group label {
-  display: block;
-  font-weight: normal;
-  margin: 4px 0;
-}
-
-
-/* ... KODE CSS LAINNYA DI BAWAH INI TETAP SAMA ... */
-
-/* Container */
+/* ===== CONTAINER ===== */
 .container {
   max-width: var(--container-max);
   width: 95%;
@@ -110,7 +69,7 @@ form label {
   padding: 0 8px;
 }
 
-/* Card */
+/* ===== CARD ===== */
 .card {
   background: var(--card-bg);
   padding: 20px;
@@ -126,41 +85,12 @@ form label {
   padding-top: 2px;
 }
 
-/* Utility .box (special rounded card) */
-.box {
-  background: var(--card-bg);
-  border: 1px solid #e6e9ef;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 90%;
-  text-align: center;
-}
-
-/* IMAGES — be specific so profile img not affect gallery thumbs */
+/* ===== IMAGES ===== */
 .card img { max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 10px; }
+.foto-diri { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; margin: 10px auto; }
+.foto-favorit { width: 320px; max-width: 100%; height: auto; margin: 8px auto; border-radius: 10px; }
 
-/* profile picture */
-.foto-diri {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 10px auto;
-}
-
-/* favorite picture / big banner */
-.foto-favorit {
-  width: 320px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 8px auto;
-  border-radius: 10px;
-}
-
-/* TABLE */
+/* ===== TABLE (jadwal) ===== */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -179,69 +109,50 @@ form label {
 }
 .table tr:nth-child(even){ background: #fbfdff; }
 
-/* GALLERY */
+/* ===== FORM (feedback) ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+form label { font-weight: 600; margin-top: 5px; }
+form input, form select, form textarea {
+  padding: 8px;
+  border: 1px solid #e6e9ef;
+  border-radius: 8px;
+  width: 100%;
+}
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.form-actions button {
+  flex-grow: 1;
+  max-width: 150px;
+}
+.reset { background: #6b7280; color: white; }
+.submit { background: var(--primary); color: white; }
+
+/* ===== GALLERY ===== */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
   align-items: start;
-  justify-items: center; /* important: keep each item centered in its grid cell */
+  justify-items: center;
 }
-.gallery figure { margin: 0; text-align: center; }
 .gallery img {
   max-width: 250px;
   width: 100%;
-  height: auto;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
   transition: transform .25s ease;
 }
 .gallery img:hover { transform: scale(1.03); }
 
-/* figure / figcaption */
-figure img { display: block; margin: 0 auto; }
-figcaption {
-  margin-top: 8px;
-  font-size: 14px;
-  color: var(--muted);
-  text-align: center; /* ensures all text under image is centered */
-}
-figcaption a {
-  color: var(--primary);
-  font-weight: 600;
-  text-decoration: none;
-}
-figcaption a:hover { text-decoration: underline; }
-
-/* VIDEO & IFRAME styling */
-video, iframe {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
-}
-
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-form input, form select, form textarea {
-  padding: 8px;
-  border: 1px solid #e6e9ef;
-  border-radius: 8px;
-}
-form button {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-.reset { background: #6b7280; color: white; }
-.submit { background: var(--primary); color: white; }
-
-/* BUTTON-like link */
+/* ===== BUTTON LINK ===== */
 .btn {
   display: inline-block;
   padding: 8px 14px;
@@ -252,14 +163,36 @@ form button {
 }
 .btn:hover { background: #153369; }
 
-/* small utilities */
-.text-center { text-align: center; }
-.small { font-size: 0.95rem; color: var(--muted); }
-
-/* RESPONSIVE tweaks */
+/* ===== RESPONSIVE FIXES ===== */
 @media (max-width: 700px) {
   .gallery { grid-template-columns: 1fr; }
   .foto-diri { width: 120px; height: 120px; }
   .box { max-width: 100%; border-radius: 14px; }
 }
 
+@media (max-width: 600px) {
+  /* Tabel agar bisa digeser tanpa rusak */
+  .table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .table th, .table td {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  /* Form rapat & tombol ke bawah */
+  .form-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .form-actions button {
+    width: 100%;
+    max-width: none;
+  }
+
+  header h1 { font-size: 1.3rem; }
+  nav a { padding: 6px 10px; font-size: 14px; }
+}
